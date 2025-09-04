@@ -1,8 +1,3 @@
-# Go to your repo folder
-cd ~/Desktop/nodejs-goof   # or wherever you cloned it
-
-# Edit Jenkinsfile (overwrite with new content)
-cat <<'EOL' > Jenkinsfile
 pipeline {
     agent any
     environment {
@@ -36,6 +31,6 @@ pipeline {
         }
     }
 }
-EOL
+
 
       
