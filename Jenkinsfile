@@ -3,27 +3,27 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/kanvirp/8.2CDevSecOps.git'
+                git branch: 'main', url: 'https://github.com/kanvirp/8.2CDevSecOps.git', credentialsId: 'github-token'
             }
         }
         stage('Install Dependencies') {
             steps {
-                sh 'npm install'
+                sh '/opt/homebrew/bin/npm install'
             }
         }
         stage('Run Tests') {
             steps {
-                sh 'npm test || true'
+                sh '/opt/homebrew/bin/npm test || true'
             }
         }
         stage('Generate Coverage Report') {
             steps {
-                sh 'npm run coverage || true'
+                sh '/opt/homebrew/bin/npm run coverage || true'
             }
         }
         stage('NPM Audit (Security Scan)') {
             steps {
-                sh 'npm audit || true'
+                sh '/opt/homebrew/bin/npm audit || true'
             }
         }
     }
